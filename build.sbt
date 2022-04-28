@@ -7,7 +7,7 @@ import org.openqa.selenium.remote.server.{DriverFactory, DriverProvider}
 import org.scalajs.jsenv.selenium.SeleniumJSEnv
 
 lazy val a = project.enablePlugins(ScalaJSPlugin)
-lazy val b = project.enablePlugins(ScalaJSPlugin)
+lazy val b = project//.enablePlugins(ScalaJSPlugin)
 
 ThisBuild / Test / jsEnv := {
 
