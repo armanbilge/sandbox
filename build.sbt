@@ -9,6 +9,7 @@ import org.scalajs.jsenv.selenium.SeleniumJSEnv
 lazy val a = project.enablePlugins(ScalaJSPlugin)
 lazy val b = project.enablePlugins(ScalaJSPlugin)
 
+ThisBuild / Test / parallelExecution := false
 ThisBuild / Test / jsEnv := {
 
   val old = (Test / jsEnv).value
