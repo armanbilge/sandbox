@@ -17,7 +17,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - run: sbt test
+      - run: sbt a/test b/test
         env:
           BROWSER: ${{ matrix.browser }}
         
