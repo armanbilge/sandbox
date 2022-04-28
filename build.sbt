@@ -6,6 +6,7 @@ ThisBuild / parallelExecution := false
 
 lazy val a = project.enablePlugins(ScalaJSPlugin).settings(commonSettings)
 lazy val b = project.enablePlugins(ScalaJSPlugin).settings(commonSettings)
+Global / concurrentRestrictions += Tags.limit(Tags.Test, 1)
 
 lazy val commonSettings = Seq(
   Test / jsEnv := {
