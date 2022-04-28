@@ -7,9 +7,6 @@ lazy val b = project.enablePlugins(ScalaJSPlugin)
 
 ThisBuild / Test / parallelExecution := false
 ThisBuild / Test / jsEnv := {
-
-  val old = (Test / jsEnv).value
-
   sys.env("BROWSER") match {
     case "chrome" =>
       val options = new ChromeOptions()
