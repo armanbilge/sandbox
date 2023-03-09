@@ -18,7 +18,8 @@ val http4s = crossProject(JVMPlatform, JSPlatform)
     fork := true
   )
   .jsSettings(
-    scalaJSUseMainModuleInitializer := true
+    scalaJSUseMainModuleInitializer := true,
+    scalaJSLinkerConfig ~= (_.withModuleKind(ModuleKind.CommonJSModule))
   )
 
 val fs2 = project
