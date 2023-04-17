@@ -1,5 +1,4 @@
 ThisBuild / scalaVersion := "3.2.2"
-ThisBuild / crossScalaVersions := Seq("2.13.10", "3.2.2")
 
 lazy val personOld = project
 lazy val personNew = project.settings(
@@ -12,10 +11,10 @@ lazy val personNew = project.settings(
       .value
 )
 
-lazy val lib = project
-  .settings(
-    libraryDependencies += "org.typelevel" %% "kittens" % "3.0.0"
-  )
-  .dependsOn(personOld % Provided)
+val appSettings = Seq(
+  Compile / unmanagedSourceDirectories += (LocalRootProject / baseDirectory).value / "app" / "src" / "main" / "scala",
+  libraryDependencies += "com.github.pureconfig" %% "pureconfig-core" % "0.17.3"
+)
 
-val app = project.dependsOn(lib, personNew)
+val appOld = project.dependsOn(personOld).settings(appSettings)
+val appNew = project.dependsOn(personNew).settings(appSettings)
