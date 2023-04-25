@@ -1,0 +1,8 @@
+native_arm_task:
+  arm_container:
+    dockerfile: .cirrus/Dockerfile
+    cpu: 2
+    memory: 8G
+  script:
+    - uname -a
+    - sbt run
