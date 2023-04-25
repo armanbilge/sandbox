@@ -1,4 +1,8 @@
 object Main {
   def main(args: Array[String]): Unit =
-    (new Throwable).printStackTrace()
+    try {
+      throw new Throwable
+    } catch {
+      case _: Throwable => ()
+    }
 }
