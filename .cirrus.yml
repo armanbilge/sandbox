@@ -1,8 +1,23 @@
-native_arm_task:
+x86_task:
+  container:
+    dockerfile: .cirrus/Dockerfile
+    cpu: 2
+    memory: 8G
+  script:
+    - clang --version
+
+arm_task:
   arm_container:
     dockerfile: .cirrus/Dockerfile
     cpu: 2
     memory: 8G
   script:
-    - uname -a
-    - sbt run
+    - clang --version
+
+jvm_macos_highcore_task:
+  macos_instance:
+    image: ghcr.io/cirruslabs/macos-ventura-base:latest
+    cpu: 4
+    memory: 8G
+  script:
+    - clang --version
