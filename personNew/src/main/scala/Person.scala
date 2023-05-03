@@ -1,5 +1,5 @@
 case class Person private (name: String, age: Int) {
-  def this(name: String) = this(name, -1)
+  private def this(name: String) = this(name, -1)
 
   def withName(name: String): Person = copy(name = name)
   def withAge(age: Int): Person = copy(age = age)
@@ -17,8 +17,11 @@ object Person {
 
   def fromProduct(p: Product): Person =
     p.productArity match {
-      case 1 => Person(p.productElement(0).asInstanceOf[String])
-      case _ =>
+      case 1 =>
+        Person(
+          p.productElement(0).asInstanceOf[String]
+        )
+      case 2 =>
         Person(
           p.productElement(0).asInstanceOf[String],
           p.productElement(1).asInstanceOf[Int]
