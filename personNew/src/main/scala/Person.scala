@@ -1,4 +1,4 @@
-case class Person private (name: String, age: Int) {
+case class Person private (name: String, age: Int = -1) {
   private def this(name: String) = this(name, -1)
 
   def withName(name: String): Person = copy(name = name)
@@ -9,7 +9,7 @@ case class Person private (name: String, age: Int) {
 }
 
 object Person {
-  def apply(name: String, age: Int): Person = new Person(name, age)
+  def apply(name: String, age: Int = -1): Person = new Person(name, age)
 
   def apply(name: String): Person = new Person(name)
 
