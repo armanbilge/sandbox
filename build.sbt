@@ -17,10 +17,16 @@ val crossSettings = List(
 )
 
 lazy val personOld = project
+  .settings(
+    scalacOptions += "-Ymacro-annotations",
+    libraryDependencies += "com.lihaoyi" %% "upickle" % "3.1.0"
+  )
   .settings(crossSettings)
 lazy val personNew = project
   .settings(crossSettings)
   .settings(
+    scalacOptions += "-Ymacro-annotations",
+    libraryDependencies += "com.lihaoyi" %% "upickle" % "3.1.0",
     mimaPreviousClassfiles := Map(
       projectID.value -> (personOld / Compile / classDirectory).value
     ),
