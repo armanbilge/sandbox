@@ -1,0 +1,14 @@
+Resources:
+  Ratings:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: lambda.jar
+      Handler: Http4sHandler
+      Runtime: java17
+      Events:
+        Api:
+          Type: HttpApi
+          Properties:
+            Path: /foo
+            Method: get
+            PayloadFormatVersion: "2.0"
