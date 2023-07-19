@@ -1,3 +1,5 @@
+//> using platform js
+//> using jsModuleKind common
 //> using dep "org.typelevel::feral-lambda-http4s::0.2.3"
 //> using dep "org.http4s::http4s-ember-client::0.23.22"
 //> using dep "org.http4s::http4s-dsl::0.23.22"
@@ -27,7 +29,7 @@ import org.http4s.syntax.all._
  * compose your handler as a stack of "middlewares", making it easy to e.g. add tracing to your
  * Lambda.
  */
-class Http4sHandler
+object http4sHandler
     extends IOLambda[ApiGatewayProxyEventV2, ApiGatewayProxyStructuredResultV2] {
 
   /**

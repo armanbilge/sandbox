@@ -1,4 +1,4 @@
 .metals/
 .scala-build/
 .vscode/
-lambda.jar
+http4sHandler.js

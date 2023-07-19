@@ -2,9 +2,8 @@ Resources:
   Ratings:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: lambda.jar
-      Handler: Http4sHandler
-      Runtime: java17
+      Handler: http4sHandler.http4sHandler
+      Runtime: nodejs18.x
       Events:
         Api:
           Type: HttpApi
