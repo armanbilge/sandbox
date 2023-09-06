@@ -1,4 +1,4 @@
-# feral-lambda-http4s demo
+# feral println demo
 
 Requires:
 - [scala-cli](https://scala-cli.virtuslab.org/)
@@ -11,7 +11,7 @@ scala-cli --power package --assembly --preamble=false lambda.scala
 
 Then start the API proxy.
 ```
-sam local start-api
+sam local invoke
 ```
 
 Then run a request.

@@ -3,12 +3,15 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       CodeUri: lambda.jar
-      Handler: Http4sHandler
+      Handler: MyLambda
       Runtime: java17
       Events:
-        Api:
-          Type: HttpApi
+        S3Event:
+          Type: S3
           Properties:
-            Path: /foo
-            Method: get
-            PayloadFormatVersion: "2.0"
+            Bucket:
+              Ref: MyS3Bucket
+            Events: s3:ObjectCreated:*
+  MyS3Bucket:
+    Type: AWS::S3::Bucket
+
